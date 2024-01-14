@@ -7,9 +7,7 @@ def calcularTiempoMaximo(n, tiempoScaloni, tiempoAyudantes, debug=True, showElap
     
     start = time.perf_counter()
     #plotTime=[]
-    tiempoScaloniAyudantes = []
-    for i in range(0, n):
-         tiempoScaloniAyudantes.append((tiempoScaloni[i], tiempoAyudantes[i]))
+    tiempoScaloniAyudantes = [list(x) for x in zip(tiempoScaloni,tiempoAyudantes)]
     
     # Complejidad O(nlogn)
     tiempoScaloniAyudantes.sort(key=lambda tup: tup[1], reverse=True)
