@@ -23,9 +23,8 @@ def calcularTiempoMaximo(n, tiempoScaloni, tiempoAyudantes,debug):
 
         #tiempoEnFinalizarAyudante.append(tiempoScaloni + tiempoAyudante + tiempoAcumuladoScaloni)
         tiempoAcumuladoScaloni += tiempoScaloni
-        if(tiempoAyudante + tiempoAcumuladoScaloni > tiempoMaximo):
-
-            tiempoMaximo = tiempoAyudante + tiempoAcumuladoScaloni
+        tiempoMaximo=max(tiempoAcumuladoScaloni+tiempoAyudante, tiempoMaximo)
+        
     if (debug):        
         print("El tiempo que se demora terminar de ver todos los videos es: ", tiempoMaximo)
         
