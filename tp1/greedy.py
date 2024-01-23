@@ -39,24 +39,24 @@ y=[]
 #rng = np.random.default_rng()
 for n in x:
     #start =time.perf_counter()
-    star=[]
-    en=[]
+    mean_start=[]
+    mean_end=[]
     for i in range(1, 5):
         #videosAMirarScaloni=rng.integers(300,size=(1,n*10))
         #videosAMirarAyudantes=rng.integers(400,size=(1,n*10))
     #start=time.perf_counter()
         videosAMirarScaloni = [random.uniform(1, 300) for _ in range(n)]
         videosAMirarAyudantes = [random.uniform(1, 400) for _ in range(n)]
-        star.append(time.perf_counter())
+        mean_start.append(time.perf_counter())
         calcularTiempoMaximo(
             n, 
             videosAMirarScaloni, 
             videosAMirarAyudantes,
             debug=False
         )
-        en.append(time.perf_counter())
-    start=np.mean(star)
-    end=np.mean(en)
+        mean_end.append(time.perf_counter())
+    start=np.mean(mean_start)
+    end=np.mean(mean_end)
     #end=time.perf_counter()
     y.append(end-start)
 
