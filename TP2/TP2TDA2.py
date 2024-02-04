@@ -9,17 +9,16 @@ import matplotlib.pyplot as plt
  
 def scaloni( d, e, s): 
     G = [[0 for x in range(d + 1)] for x in range(d + 1)] 
+    G[1][1] = min(e[0],s[0])
     for i in range(1,d+1):
         p=1 
         for j in range(1,d + 1): 
             if i == 0 or j == 0 or (j>i): 
                 G[i][j] = 0
-            elif(i==1): 
-                    G[1][1] = min(e[0],s[0])
             else:
                     G[i][j]=max(min(e[i-1],s[j-1])+ G[i-1][j-1],min(e[i-1],s[0])+ max(G[i-2]))
  
-    return G 
+    return G  
 
 def reconstruccion(G, p, e, s):
     res=["Descanso" for x in range(len(e))] 
