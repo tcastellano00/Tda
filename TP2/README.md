@@ -4,7 +4,7 @@
 | Adriana Macarena Iglesias Tripodi  | 103384 |
 | Ezequiel Lassalle                  | 105801 |
 
-No se el padrón ni nombre completo y ni ganas de buscarlo vayan agregandolo a medida que van leyendo el códigp
+
 
 ## Ejecutar
 Para ejecutar el programa correr el siguiente comando en la terminal
