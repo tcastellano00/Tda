@@ -2,6 +2,8 @@ from itertools import islice
 import numpy as np
 import time
 import matplotlib.pyplot as plt
+import os
+import sys
 #Adaptamos el problema comparandolo con el de la mochila
 #max(max(G[w-2,j])+min(ei,s1),G[w-1,j-1] +min (ei, sj))
 #max(G[n-1,W];G[n-1,W-P]+Vi)
@@ -75,7 +77,7 @@ def comparar_resultados(name,ganancia_maxima_obtenida,entrenamiento_obtenido,res
 def comparaciones(x_name,resultados_dados,plot=False,No_calculate_5000=False,obtener_Plan_entrenamiento=False):
     y=[]
     x=[]
-    path1='Datos/'
+    path1=os.path.dirname(os.path.abspath(sys.argv[0]))+"/Datos/"
     resultados_dados=resultados_esperados(path1+resultados_dados)
     if No_calculate_5000:
          x_name.pop()
