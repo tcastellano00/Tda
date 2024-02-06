@@ -75,7 +75,7 @@ def comparar_resultados(name,ganancia_maxima_obtenida,entrenamiento_obtenido,res
 def comparaciones(x_name,resultados_dados,plot=False,No_calculate_5000=False,obtener_Plan_entrenamiento=False):
     y=[]
     x=[]
-    path1='/Datos/'
+    path1='Datos/'
     resultados_dados=resultados_esperados(path1+resultados_dados)
     if No_calculate_5000:
          x_name.pop()
