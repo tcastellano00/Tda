@@ -35,7 +35,7 @@ def reconstruccion(G, p, e, s):
         p-=1
         i-=1
     if G[2][1]+min(e[2],s[2]) !=G[3][p+2]:
-            res[0]="Entreno" 
+        res[0]="Entreno" 
     return (res)
  
 def abrir_archivo(path):
