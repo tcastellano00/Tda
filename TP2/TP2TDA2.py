@@ -18,7 +18,7 @@ def scaloni( d, e, s):
             if i == 0 or j == 0 or (j>i): 
                 G[i][j] = 0
             else:
-                    G[i][j]=max(min(e[i-1],s[j-1])+ G[i-1][j-1],min(e[i-1],s[0])+ max(G[i-2]))
+                G[i][j]=max(min(e[i-1],s[j-1])+ G[i-1][j-1],min(e[i-1],s[0])+ max(G[i-2]))
  
     return G  
 
@@ -37,8 +37,8 @@ def reconstruccion(G, p, e, s):
     if G[2][1]+min(e[2],s[2]) !=G[3][p+2]:
             res[0]="Entreno" 
     return (res)
+ 
 def abrir_archivo(path):
-   
     with open(path) as archivo:
         datos = archivo.readlines()
         n = int(datos[0])
@@ -58,9 +58,9 @@ def resultados_esperados(path):
             if not datos:
                 break
             resultados.append({
-            "Archivo": datos.pop(0).split("\n")[0],
-            "Ganancia Máxima": int((datos.pop(0).split(":")[1]).split("\n")[0]),
-            "Plan de entrenamiento":((datos.pop(0).split(":")[1]).split("\n")[0])[1:].split(", ")
+                "Archivo": datos.pop(0).split("\n")[0],
+                "Ganancia Máxima": int((datos.pop(0).split(":")[1]).split("\n")[0]),
+                "Plan de entrenamiento":((datos.pop(0).split(":")[1]).split("\n")[0])[1:].split(", ")
             })
     archivo.close()
     return resultados
@@ -80,27 +80,27 @@ def comparaciones(x_name,resultados_dados,plot=False,No_calculate_5000=False,obt
     path1=os.path.dirname(os.path.abspath(sys.argv[0]))+"/Datos/"
     resultados_dados=resultados_esperados(path1+resultados_dados)
     if No_calculate_5000:
-         x_name.pop()
+        x_name.pop()
     for i in (x_name):
-         path=path1+i
-         e,s=abrir_archivo(path)
-         d = len (e)
-         x.append(d)
-         start=time.perf_counter()
-         G=scaloni( d, e, s)
-         end=time.perf_counter()
-         y.append(end-start)
-         P=np.matrix(G)
-         Max=P.max()
-         p, j = np.unravel_index(P.argmax(), P.shape)
-         entrenamiento_obtenido =reconstruccion(G,j,e,s)
-         print("El Archivo analizado es:", i, ". Su máximo es: ", Max)
-         if obtener_Plan_entrenamiento:
+        path=path1+i
+        e,s=abrir_archivo(path)
+        d = len (e)
+        x.append(d)
+        start=time.perf_counter()
+        G=scaloni( d, e, s)
+        end=time.perf_counter()
+        y.append(end-start)
+        P=np.matrix(G)
+        Max=P.max()
+        p, j = np.unravel_index(P.argmax(), P.shape)
+        entrenamiento_obtenido =reconstruccion(G,j,e,s)
+        print("El Archivo analizado es:", i, ". Su máximo es: ", Max)
+        if obtener_Plan_entrenamiento:
             print("El Plan de Entrenamiento es:", entrenamiento_obtenido) 
-         print("Si lo comparamos con los datos dados es", comparar_resultados(i,Max,entrenamiento_obtenido,resultados_dados), "que se cumple lo esperado")
-         if (plot):
+        print("Si lo comparamos con los datos dados es", comparar_resultados(i,Max,entrenamiento_obtenido,resultados_dados), "que se cumple lo esperado")
+        if (plot):
             print("Se tardó", end-start, "segundos en realizar el análisis")
-         print()
+        print()
     if(plot):
         plt.figure(figsize=(20, 8))
         plt.plot(x, y,marker='o',label = "nuestro")
