@@ -1,0 +1,3 @@
+50.txt
+Ganancia maxima: 1870
+Plan de entrenamiento: Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Descanso, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno, Descanso, Entreno, Entreno, Entreno

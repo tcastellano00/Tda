@@ -12,7 +12,7 @@ def abrir_archivo_datos(path):
     
     return e, s
  
-def abrir_archivos_resultados_esperados(path):
+def abrir_archivo_resultados_esperados(path):
     with open(path) as archivo:
         resultados=[]
         while (True):
