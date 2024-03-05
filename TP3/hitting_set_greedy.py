@@ -1,19 +1,22 @@
 def _hitting_set_greedy(ordered_players):
-    solution =[]
-    visited=[]
+    visited = []
+    solution = []
     while True:
         player=list(ordered_players.items())[0][0]
         if len(ordered_players[player])!=0:
             solution.append(player)
         else:
             break
+
         visited[:]=ordered_players[player]
         ordered_players.pop(player)
+
         for journalist in visited:
             for other_player in ordered_players:
                 if journalist in ordered_players[other_player]:
                     ordered_players[other_player].remove(journalist)
-        ordered_players = sort_by_journalist(ordered_players)
+
+        ordered_players = sort_by_journalist_count_desc(ordered_players)
     return solution
 
 def hitting_set_greedy(B):
@@ -32,7 +35,7 @@ def sort_players(B):
                 
             journalistsByPlayer[playerName].append(journalistNumber)
      
-    return sort_by_journalist(journalistsByPlayer)
+    return sort_by_journalist_count_desc(journalistsByPlayer)
 
-def sort_by_journalist(players):
+def sort_by_journalist_count_desc(players):
     return dict(sorted(players.items(), key=lambda item: len(item[1]), reverse=True))

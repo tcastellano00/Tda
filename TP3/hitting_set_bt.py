@@ -1,9 +1,9 @@
 def check_if_in_subsets(B,C):
-    length=0
+    length = 0
     for Bi in B:
         if any(i in Bi for i in C):
-            length+=1
-    if length>=len(B):
+            length += 1
+    if length >= len(B):
         return True
     return False
 
@@ -13,7 +13,7 @@ def check_if_in_subset(Bi,C):
     return False
 
 def hitting_set_bt(B,k,actual_solution, solution):
-    if k>=len(B):
+    if k >= len(B):
         return False
     if check_if_in_subset(B[k],actual_solution):
         return hitting_set_bt(B,k+1,actual_solution, solution)
